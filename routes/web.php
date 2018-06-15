@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Auth::routes();
+
+Route::get('/profile', 'HomeController@index')->name('profile')->name('profile');
+
+Route::get('/test', function (){
+    $a=route_class();
+    return $a;
+})->name('test');
