@@ -8,22 +8,36 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+html {
+  margin: 0;
+  padding: 0;
+  //fixed the footer
+  min-height: 100%;
+  position: relative !important;
+}
+body {
+
+}
+#app {
+
+}
+.main-content {
+  //fixed the footer
+  padding-bottom: 60px;
+}
 .footer {
+  //fixed the footer
   position: absolute;
   bottom: 0;
   width: 100% ;
-  /* Set the fixed height of the footer here */
   height: 60px;
+  line-height: 60px;
   background-color: #000;
 
   .container {
-    padding-right: 15px;
-    padding-left: 15px;
-
     p {
-      margin: 19px 0;
       color: #c1c1c1;
-
+      margin: 0;
       a {
         color: inherit;
       }
