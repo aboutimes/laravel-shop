@@ -16,14 +16,18 @@ Route::get('/', 'PagesController@home')->name('home');
 Auth::routes();
 
 Route::get('/test', function (){
-//    $a=route_class();
-//    return $a;
+// 测试
     $a = \App\Models\User::find(1);
     dd($a->toJson());
 })->name('test');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/email_verify_notice', 'PagesController@emailVerifyNotice')->name('email_verify_notice');
+    Route::get('/email_verify_notice', 'PagesController@emailVerifyNotice')
+        ->name('email_verify_notice');
+    Route::get('/email_verify_send', 'EmailVerificationController@send')
+        ->name('email_verify_send');
+    Route::get('/email_verify', 'EmailVerificationController@verify')
+        ->name('email_verify');
     // 开始，邮箱验证
     Route::group(['middleware' => 'email_verified'], function() {
         Route::get('/testss', function() {
