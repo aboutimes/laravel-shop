@@ -31,10 +31,8 @@ class UserAddressesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param UserAddressRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(UserAddressRequest $request)
     {
@@ -52,10 +50,7 @@ class UserAddressesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
      */
     public function show($id)
     {
@@ -63,13 +58,13 @@ class UserAddressesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UserAddress $user_address
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(UserAddress $user_address)
     {
+        $this->authorize('own', $user_address);
         return view('user_addresses.create_and_edit', ['address' => $user_address]);
     }
 
@@ -77,9 +72,11 @@ class UserAddressesController extends Controller
      * @param UserAddress $user_address
      * @param UserAddressRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(UserAddress $user_address, UserAddressRequest $request)
     {
+        $this->authorize('own', $user_address);
         $user_address->update($request->only([
             'province',
             'city',
@@ -95,13 +92,15 @@ class UserAddressesController extends Controller
 
     /**
      * @param UserAddress $user_address
-     * @return \Illuminate\Http\RedirectResponse
+     * @return array
      * @throws \Exception
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(UserAddress $user_address)
     {
         // $user_address->delete();
         // return redirect()->route('user_addresses.index');
+        $this->authorize('own', $user_address);
         $user_address->delete();
         return [];
     }
