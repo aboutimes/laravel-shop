@@ -74,11 +74,9 @@ class UserAddressesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UserAddress $user_address
+     * @param UserAddressRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UserAddress $user_address, UserAddressRequest $request)
     {
@@ -96,13 +94,15 @@ class UserAddressesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UserAddress $user_address
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(UserAddress $user_address)
     {
-        //
+        // $user_address->delete();
+        // return redirect()->route('user_addresses.index');
+        $user_address->delete();
+        return [];
     }
 }

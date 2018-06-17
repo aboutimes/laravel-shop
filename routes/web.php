@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function() {
             ->name('user_addresses.edit');
         Route::put('user_addresses/{user_address}', 'UserAddressesController@update')
             ->name('user_addresses.update');
+        Route::delete('user_addresses/{user_address}', 'UserAddressesController@destroy')
+            ->name('user_addresses.destroy');
     });
     // 结束
 });
