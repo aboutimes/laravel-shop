@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exceptions\InvalidRequestException;
 
 class PagesController extends Controller
 {
@@ -27,23 +28,16 @@ class PagesController extends Controller
     }
 
     /**
-     * Show email_verify_notice page.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws InvalidRequestException
      */
     public function emailVerifyNotice(Request $request)
     {
         $user = $request->user();
         // 判断用户是否已经激活
         if ($user->email_verified) {
-            return view(
-                'pages.email_verify_notice',
-                [
-                    'msg' => '您已经验证过邮箱了',
-                    'link' => route('home'),
-                    'link_desc' => '返回首页'
-                ]
-            );
+            throw new InvalidRequestException('您已经验证过邮箱了');
         }
         return view(
             'pages.email_verify_notice',
