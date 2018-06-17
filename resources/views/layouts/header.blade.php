@@ -1,7 +1,6 @@
 <header class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                 <span class="sr-only">Toggle Navigation</span>
@@ -41,8 +40,8 @@
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Logout
+                                            document.getElementById('logout-form').submit();">
+                                    注销
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

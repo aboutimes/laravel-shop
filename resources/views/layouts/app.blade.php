@@ -21,7 +21,13 @@
         <!-- header -->
         @include('layouts.header')
         <!-- content -->
-        @yield('content')
+        <div class="main-content">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                 @yield('content')
+                </div>
+            </div>
+        </div>
         <!-- footer -->
         @include('layouts.footer')
     </div>
