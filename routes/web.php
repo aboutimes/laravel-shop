@@ -30,9 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('email_verify');
     // 开始，邮箱验证
     Route::group(['middleware' => 'email_verified'], function() {
-        Route::get('/testss', function() {
-            return 'Your email is verified';
-        });
+        Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
     });
     // 结束
 });

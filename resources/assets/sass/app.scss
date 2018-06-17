@@ -1,6 +1,6 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+//@import url("https://fonts.googleapis.com/css?family=Lato:300,400,600");
 
 // Variables
 @import "variables";
@@ -16,10 +16,12 @@ html {
   position: relative !important;
 }
 body {
-
+  //font-size: 62.5%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 #app {
-
 }
 .main-content {
   //fixed the footer

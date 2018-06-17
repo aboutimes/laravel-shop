@@ -38,4 +38,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified' => 'boolean',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class);
+    }
 }
