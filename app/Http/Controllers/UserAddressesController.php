@@ -68,9 +68,9 @@ class UserAddressesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(UserAddress $user_address)
     {
-        //
+        return view('user_addresses.create_and_edit', ['address' => $user_address]);
     }
 
     /**
@@ -80,9 +80,19 @@ class UserAddressesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserAddress $user_address, UserAddressRequest $request)
     {
-        //
+        $user_address->update($request->only([
+            'province',
+            'city',
+            'district',
+            'address',
+            'zip',
+            'contact_name',
+            'contact_phone',
+        ]));
+
+        return redirect()->route('user_addresses.index');
     }
 
     /**

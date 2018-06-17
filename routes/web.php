@@ -30,12 +30,17 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('email_verify');
     // 开始，邮箱验证
     Route::group(['middleware' => 'email_verified'], function() {
+        //收货地址
         Route::get('user_addresses', 'UserAddressesController@index')
             ->name('user_addresses.index');
         Route::get('user_addresses/create', 'UserAddressesController@create')
             ->name('user_addresses.create');
         Route::post('user_addresses', 'UserAddressesController@store')
             ->name('user_addresses.store');
+        Route::get('user_addresses/{user_address}', 'UserAddressesController@edit')
+            ->name('user_addresses.edit');
+        Route::put('user_addresses/{user_address}', 'UserAddressesController@update')
+            ->name('user_addresses.update');
     });
     // 结束
 });
