@@ -8,7 +8,7 @@
         <div class="panel-heading">收货地址列表</div>
         <div class="panel-body">
             {{--<div class="col-lg-12">--}}
-                <a href="{{route('user_addresses.create')}}" class="btn btn-primary">
+                <a href="{{route('user_addresses.create')}}" class="btn btn-primary btn-sm">
                     新增地址
                 </a>
             {{--</div>--}}
@@ -32,12 +32,12 @@
                             <td>{{ $address->full_address }}</td>
                             <td>{{ $address->zip }}</td>
                             <td>{{ $address->contact_phone }}</td>
-                            <td>
+                            <td style="text-align: center;">
                                 <a href="{{ route('user_addresses.edit', ['user_address' => $address->id]) }}"
-                                   class="btn btn-primary">
+                                   class="btn btn-primary btn-sm">
                                     修改
                                 </a>
-                                <button class="btn btn-danger btn-del-address" type="button" data-id="{{ $address->id }}">
+                                <button class="btn btn-danger btn-del-address btn-sm" type="button" data-id="{{ $address->id }}">
                                     删除
                                 </button>
                             </td>
