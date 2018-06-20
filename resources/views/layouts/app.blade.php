@@ -38,6 +38,5 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('js')
-    @yield('scriptsAfterJs')
 </body>
 </html>

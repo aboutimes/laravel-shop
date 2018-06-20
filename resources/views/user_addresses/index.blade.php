@@ -51,7 +51,7 @@
 </div>
 @endsection
 
-@section('scriptsAfterJs')
+@push('js')
     <script>
       $(document).ready(function() {
         // 删除按钮点击事件
@@ -81,4 +81,4 @@
         });
       });
     </script>
-@endsection
+@endpush
