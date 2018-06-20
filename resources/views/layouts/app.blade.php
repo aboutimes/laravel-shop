@@ -15,6 +15,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        @stack('styles')
+    </style>
 </head>
 <body>
     <div id="app"  class="{{ route_class() }}-page">
@@ -23,7 +26,7 @@
         <!-- content -->
         <div class="main-content">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                  @yield('content')
                 </div>
             </div>
@@ -34,6 +37,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @stack('js')
     @yield('scriptsAfterJs')
 </body>
 </html>

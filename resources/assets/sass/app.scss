@@ -31,6 +31,63 @@ body {
   margin: 0 15px;
   padding: 0 15px 60px;
 }
+.home-page {
+  .products-list {
+    padding: 0 10px;
+    .product-item {
+      padding: 0 5px;
+      margin-bottom: 10px;
+      .product-content {
+        border: 1px solid #eee;
+        .top {
+          padding: 5px;
+          .img {
+            display:table-cell;
+            text-align:center;
+            vertical-align:middle;
+            //height: 215px;
+          }
+          img {
+            width: 100%;
+          }
+          .price {
+            margin-top: 5px;
+            font-size: 1em;
+            color: #ff0036;
+            b {
+              font-size: 1em;
+            }
+          }
+          .title {
+            margin-top: 10px;
+            font-size: 12px;
+          }
+        }
+        .bottom {
+          font-size: 12px;
+          display: flex;
+          .sold_count span {
+            color: #b57c5b;
+            font-weight: bold;
+          }
+          .review_count span {
+            color: #38b;
+            font-weight: bold;
+          }
+          &>div {
+            &:first-child {
+              border-right: 1px solid #eee;
+            }
+            padding: 10px 5px;
+            line-height: 12px;
+            flex-grow: 1;
+            border-top: 1px solid #eee;
+          }
+        }
+      }
+    }
+  }
+}
 .footer {
   //fixed the footer
   position: absolute;
