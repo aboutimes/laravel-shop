@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <div class="row products-list">
                     @foreach($products as $product)
-                        <div class="col-xs-12 col-sm-4 col-md-3 product-item">
+                        <div class="col-xs-12 col-sm-4 col-md-3 product-item favor-{{ $product->id }}">
                             <div class="product-content">
                                 <div class="top">
                                     <div class="img">
@@ -23,7 +23,7 @@
                                 <div class="bottom">
                                     <div class="sold_count">销量 <span>{{ $product->sold_count }}笔</span></div>
                                     <div class="review_count">评价 <span>{{ $product->review_count }}</span></div>
-                                    <div class="disfavor">★</div>
+                                    <div class="favor">★</div>
                                 </div>
                             </div>
                         </div>
@@ -63,13 +63,11 @@
       };
 
       //取消收藏
-      $('.disfavor').click(function () {
+      $('.favor').click(function (e) {
         axios.delete('{{ route('products.disfavor', ['product' => $product->id]) }}')
           .then(function () {
-            swal('取消收藏成功', '', 'success')
-              .then(function () {
-                location.reload();
-              });
+            swal('取消收藏成功', '', 'success');
+            $(".favor-{{$product->id}}").css('display', 'none');
           });
       });
     </script>

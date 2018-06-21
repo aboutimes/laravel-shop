@@ -50,11 +50,11 @@
                             <span class="stock"></span>
                         </div>
                         <div class="buttons">
-                            @if($favored)
-                                <button class="btn btn-default btn-disfavor">★ 收藏</button>
-                            @else
+                            {{--@if($favored)--}}
+                                {{--<button class="btn btn-default btn-disfavor">★ 收藏</button>--}}
+                            {{--@else--}}
                                 <button class="btn btn-default btn-favor">★ 收藏</button>
-                            @endif
+                            {{--@endif--}}
                             <button class="btn btn-warning btn-add-to-cart">
                                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> </span> 加入购物车
                             </button>
@@ -102,9 +102,7 @@
           axios.post('{{ route('products.favor', ['product' => $product->id]) }}')
             .then(function () {
               swal('收藏成功', '', 'success')
-                .then(function () {  // 这里加了一个 then() 方法
-                  location.reload();
-                });
+              $('.btn-favor').addClass("btn-disfavor");
             }, function(error) {
               if (error.response && error.response.status === 401) {
                 swal('请先登录', '', 'error');
@@ -114,13 +112,11 @@
             });
         });
         //取消收藏
-        $('.btn-disfavor').click(function () {
+        $('.btn-favor').click(function () {
           axios.delete('{{ route('products.disfavor', ['product' => $product->id]) }}')
             .then(function () {
               swal('取消收藏成功', '', 'success')
-                .then(function () {
-                  location.reload();
-                });
+              $('.btn-favor').removeClass("btn-disfavor");
             });
         });
 
