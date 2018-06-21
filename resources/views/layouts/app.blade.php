@@ -20,11 +20,11 @@
     </style>
 </head>
 <body>
-    <div id="app"  class="{{ route_class() }}-page">
+    <div id="app">
         <!-- header -->
         @include('layouts.header')
         <!-- content -->
-        <div class="main-content">
+        <div class="main-content {{ route_class() }}-page">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                  @yield('content')
