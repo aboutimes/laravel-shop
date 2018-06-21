@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function() {
             ->name('products.favor');
         Route::delete('products/{product}/favorite', 'ProductsController@disfavor')
             ->name('products.disfavor');
+        // 购物车
+        Route::post('cart', 'CartController@add')->name('cart.add');
     });
     // 结束
 });
