@@ -25,12 +25,19 @@ body {
   .table tbody tr td{
     vertical-align: middle;
   }
+  .glyphicon-shopping-cart {
+    padding-right: 5px;
+    color: #FF5722;
+  }
+  .shopping-cart-count {
+  }
 }
 .main-content {
   //fixed the footer
   margin: 0 15px;
   padding: 0 15px 60px;
 }
+//首页与收藏
 .products-index-page, .products-favorites-page {
   .search-form {
     padding: 0 20px;
@@ -94,6 +101,7 @@ body {
     }
   }
 }
+//商品详情
 .products-show-page {
   .cover {
     width: 100%;
@@ -208,6 +216,59 @@ body {
     .tab-content {
       border: 1px solid #eee;
       padding: 20px;
+    }
+  }
+}
+//购物车
+.cart-index-page {
+  .product_list {
+    .preview {
+      img {
+        max-width: 80px;
+        max-height: 80px;
+      }
+      margin-right: 20px;
+    }
+    tr {
+      border-bottom: 1px solid #ddd;
+      td {
+        border: 0;
+      }
+    }
+
+    .product_info {
+      display: -webkit-flex; /* Safari */
+      -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+      display: flex;
+      align-items: flex-start;
+      font-size: 12px;
+      .product_title, .sku_title, .warning {
+        display: block;
+      }
+
+      .product_title a {
+        color: #3c3c3c;
+        font-size: 14px;
+      }
+      .not_on_sale {
+        .product_title, .sku_title {
+          text-decoration: line-through;
+        }
+        .warning {
+          color: red;
+        }
+      }
+    }
+
+    .price {
+      font-size: 12px;
+      font-weight: 700;
+      color: #3c3c3c;
+    }
+
+    input.amount {
+      width: 60px;
+      border-radius: 0 !important;
     }
   }
 }

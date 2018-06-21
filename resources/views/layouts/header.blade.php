@@ -28,6 +28,13 @@
                     <li><a href="{{ route('login') }}">登录</a></li>
                     <li><a href="{{ route('register') }}">注册</a></li>
                 @else
+                    <li>
+                        <a href="{{ route('cart.index') }}">
+                            <span>购物车</span>
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            <span class="shopping-cart-count">{{ \Illuminate\Support\Facades\Auth::user()?\Illuminate\Support\Facades\Auth::user()->cartItems->count():null }}</span>
+                        </a>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -43,7 +50,7 @@
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                   document.getElementById('logout-form').submit();">
                                     注销
                                 </a>
 
