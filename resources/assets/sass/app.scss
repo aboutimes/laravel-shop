@@ -25,7 +25,7 @@ body {
   .table tbody tr td{
     vertical-align: middle;
   }
-  .glyphicon-shopping-cart {
+  .shopping-cart-icon {
     padding-right: 5px;
     color: #FF5722;
   }
@@ -87,10 +87,19 @@ body {
             color: #38b;
             font-weight: bold;
           }
+          .disfavor {
+            color: #ff5722;
+            font-size: 18px;
+          }
+          .disfavor:hover {
+            cursor:pointer;
+          }
           &>div {
-            &:first-child {
-              border-right: 1px solid #eee;
+            text-align: center;
+            &:last-child {
+              border-right: 0;
             }
+            border-right: 1px solid #eee;
             padding: 10px 5px;
             line-height: 12px;
             flex-grow: 1;
@@ -121,14 +130,12 @@ body {
       padding-left: 10px;
     }
     em {
-      font-family: Arial;
       font-size: 18px;
       font-style: normal;
       text-decoration: none;
       vertical-align: middle;
     }
     span {
-      font-family: Arial;
       font-size: 24px;
       font-weight: bolder;
       text-decoration: none;
@@ -143,8 +150,9 @@ body {
     border-top: 1px dotted #c9c9c9;
     border-bottom: 1px dotted #c9c9c9;
     margin: 5px 0 10px;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
     display: flex;
-    flex-drection: row;
     font-size: 12px;
     &>div {
       &.sold_count,&.review_count {
@@ -206,6 +214,9 @@ body {
   }
   .buttons {
     padding-left: 44px;
+    .btn-disfavor {
+      color: #ff5722;
+    }
   }
 
   .product-detail  {

@@ -51,11 +51,13 @@
                         </div>
                         <div class="buttons">
                             @if($favored)
-                                <button class="btn btn-danger btn-disfavor">取消收藏</button>
+                                <button class="btn btn-default btn-disfavor">★ 收藏</button>
                             @else
-                                <button class="btn btn-success btn-favor">❤ 收藏</button>
+                                <button class="btn btn-default btn-favor">★ 收藏</button>
                             @endif
-                            <button class="btn btn-primary btn-add-to-cart">加入购物车</button>
+                            <button class="btn btn-warning btn-add-to-cart">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> </span> 加入购物车
+                            </button>
                         </div>
                     </div>
                 </div>

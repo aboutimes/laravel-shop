@@ -31,7 +31,7 @@
                     <li>
                         <a href="{{ route('cart.index') }}">
                             <span>购物车</span>
-                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-shopping-cart shopping-cart-icon" aria-hidden="true"></span>
                             <span class="shopping-cart-count">{{ \Illuminate\Support\Facades\Auth::user()?\Illuminate\Support\Facades\Auth::user()->cartItems->count():null }}</span>
                         </a>
                     </li>

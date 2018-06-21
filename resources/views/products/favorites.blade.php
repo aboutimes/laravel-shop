@@ -23,6 +23,7 @@
                                 <div class="bottom">
                                     <div class="sold_count">销量 <span>{{ $product->sold_count }}笔</span></div>
                                     <div class="review_count">评价 <span>{{ $product->review_count }}</span></div>
+                                    <div class="disfavor">★</div>
                                 </div>
                             </div>
                         </div>
@@ -60,5 +61,16 @@
         }
         equalHeight('img');
       };
+
+      //取消收藏
+      $('.disfavor').click(function () {
+        axios.delete('{{ route('products.disfavor', ['product' => $product->id]) }}')
+          .then(function () {
+            swal('取消收藏成功', '', 'success')
+              .then(function () {
+                location.reload();
+              });
+          });
+      });
     </script>
 @endpush
