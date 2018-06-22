@@ -45,7 +45,10 @@ class ProductsController extends Controller
             }
         }
 
-        $products = $builder->paginate(16);
+        $per_page = \Config::has('siteVars.product_per_page')?
+            \Config::get('siteVars.product_per_page'): 20;
+
+        $products = $builder->paginate($per_page);
 
         return view('products.index', [
                 'products' => $products,

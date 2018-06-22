@@ -9,6 +9,7 @@ use App\Models\UserAddress;
 use App\Models\Order;
 use Carbon\Carbon;
 use App\Exceptions\InvalidRequestException;
+use App\Jobs\CloseOrder;
 
 class OrderController extends Controller
 {
@@ -90,6 +91,11 @@ class OrderController extends Controller
 
             return $order;
         });
+
+        $order_timeout = \Config::has('siteVars.product_per_page')?
+            \Config::get('siteVars.product_per_page'): 1800;;
+        $this->dispatch(new CloseOrder($order, $order_timeout));
+
 
         return $order;
     }
