@@ -110,14 +110,17 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function show($id)
+    public function show(Order $order, Request $request)
     {
-        //
+        $this->authorize('own', $order);
+        return view('orders.show', [
+            'order' => $order->load(['items.productSku', 'items.product'])
+        ]);
     }
 
     /**
