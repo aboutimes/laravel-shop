@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('cart', 'CartController@add')->name('cart.add');
         Route::delete('cart/{sku}', 'CartController@remove')->name('cart.remove');
         // 订单
+        Route::get('orders', 'OrderController@index')->name('orders.index');
         Route::post('order/store', 'OrderController@store')->name('order.store');
 
     });
