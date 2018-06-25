@@ -20,11 +20,11 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th>商品信息</th>
-                                        <th class="text-center">单价</th>
-                                        <th class="text-center">数量</th>
-                                        <th class="text-center">订单总价</th>
-                                        <th class="text-center">状态</th>
+                                        <th width="30%">商品信息</th>
+                                        <th class="text-center" width="10%">单价</th>
+                                        <th class="text-center" width="10%">数量</th>
+                                        <th class="text-center" width="10%">订单总价</th>
+                                        <th class="text-center" width="20%">状态</th>
                                         <th class="text-center">操作</th>
                                     </tr>
                                     </thead>
