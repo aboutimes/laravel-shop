@@ -58,6 +58,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('orders', 'OrderController@index')->name('orders.index');
         Route::get('orders/{order}', 'OrderController@show')->name('orders.show');
         Route::post('order/store', 'OrderController@store')->name('order.store');
+        Route::post('orders/{order}/received', 'OrderController@received')
+            ->name('orders.received');  // 收货
         // 付款
         Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')
             ->name('payment.alipay');   //支付宝
@@ -65,6 +67,7 @@ Route::group(['middleware' => 'auth'], function() {
             ->name('payment.alipay.return');    //支付宝
         Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')
             ->name('payment.wechat');   //微信
+
     });
     // 结束
 });
