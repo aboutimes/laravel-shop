@@ -60,6 +60,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('order/store', 'OrderController@store')->name('order.store');
         Route::post('orders/{order}/received', 'OrderController@received')
             ->name('orders.received');  // 收货
+        Route::get('orders/{order}/review', 'OrderController@review')
+            ->name('orders.review.show');   // 评价
+        Route::post('orders/{order}/review', 'OrderController@sendReview')
+            ->name('orders.review.store');
         // 付款
         Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')
             ->name('payment.alipay');   //支付宝
