@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function() {
             ->name('orders.review.show');   // 评价
         Route::post('orders/{order}/review', 'OrderController@sendReview')
             ->name('orders.review.store');
+        Route::post('orders/{order}/apply_refund', 'OrderController@applyRefund')
+            ->name('orders.apply_refund');  // 退款
         // 付款
         Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')
             ->name('payment.alipay');   //支付宝
