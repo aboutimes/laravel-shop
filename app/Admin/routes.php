@@ -22,4 +22,5 @@ Route::group([
     // 订单管理
     $router->get('orders', 'OrderController@index')->name('admin.orders.index');
     $router->get('orders/{order}', 'OrderController@show')->name('admin.orders.show');
+    $router->post('orders/{order}/ship', 'OrderController@ship')->name('admin.orders.ship');
 });
