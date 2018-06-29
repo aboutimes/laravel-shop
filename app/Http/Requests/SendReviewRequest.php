@@ -2,15 +2,14 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class SendReviewRequest extends FormRequest
+class SendReviewRequest extends Request
 {
     /**
      * @return array
      */
-    public function authorize()
+    public function attributes()
     {
         return [
             'reviews.*.rating' => '评分',
