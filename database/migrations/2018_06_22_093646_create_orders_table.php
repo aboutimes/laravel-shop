@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('total_amount');    // 订单总金额
             $table->text('remark')->nullable(); // 订单备注
             $table->dateTime('paid_at')->nullable();    // 支付时间
+            $table->foreign('coupon_code_id')->nullable()->references('id')->on('coupon_codes')->onDelete('set null');
             $table->string('payment_method')->nullable();   // 支付方式
             $table->string('payment_no')->nullable();   // 支付平台订单号
             $table->string('refund_status')->default(\App\Models\Order::REFUND_STATUS_PENDING);    // 退款状态

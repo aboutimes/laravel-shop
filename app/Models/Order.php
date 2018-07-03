@@ -87,14 +87,31 @@ class Order extends Model
         });
     }
 
+    /**
+     * 关联用户
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * 关联订单item
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function items()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    /**
+     * 关联优惠券
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function couponCode()
+    {
+        return $this->belongsTo(CouponCode::class);
     }
 
     /**
