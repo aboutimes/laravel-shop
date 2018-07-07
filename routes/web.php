@@ -74,6 +74,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')
             ->name('payment.wechat');   //微信
 
+        Route::get('coupon_codes/{code}', 'CouponCodeController@show')
+            ->name('coupon_codes.show');
     });
     // 结束
 });
