@@ -91,7 +91,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'faker_locale' => env('APP_LOCAL', 'en'),
+    'faker_locale' => env('FAKER_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
